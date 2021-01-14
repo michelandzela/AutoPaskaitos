@@ -14,8 +14,9 @@ namespace AutoPaskaitos.ManoBaigiamasis.Pages
         private IWebElement emailBox => driver.FindElement(By.Id("username"));
         private IWebElement password => driver.FindElement(By.Id("password"));
         private IWebElement logIn => driver.FindElement(By.Name("login"));
-        private IWebElement fault => driver.FindElement(By.LinkText("Netinkamas vartotojo vardas. ")); // del sitos
-        private IWebElement wrong => driver.FindElement(By.LinkText(" yra neteisingas. ")); // del sitos
+        private IWebElement faultEmail => driver.FindElement(By.CssSelector(".woocommerce-error > li"));
+        private IWebElement wrongPassword => driver.FindElement(By.CssSelector(".woocommerce-error > li"));
+        
         public void PressLogInButton()
         {
             logInButton.Click();
@@ -46,11 +47,15 @@ namespace AutoPaskaitos.ManoBaigiamasis.Pages
         }
         public void CheckFault()
         {
-            Assert.AreEqual("Netinkamas vartotojo vardas. ", fault.Text); // del sitos
+            Assert.AreEqual("KLAIDA: Netinkamas vartotojo vardas. Pamiršote slaptažodį?", faultEmail.Text);
         }
         public void CheckWrongPassword()
         {
-            Assert.AreEqual(" yra neteisingas. ", wrong.Text); // del sitos
+            Assert.AreEqual("KLAIDA: Įvestas slaptažodis el pašto adresui j.michalcenko@gmail.com yra neteisingas. Pamiršote slaptažodį?", wrongPassword.Text); // del sitos
+        }
+        public void CheckLogOutButton()
+        {
+            Assert.IsNotNull(driver.FindElement(By.CssSelector("#masthead > div.header-inner.flex-row.container.logo-center.medium-logo-center > div.flex-col.hide-for-medium.flex-right > ul > li.account-item.has-icon.has-dropdown > ul > li.woocommerce-MyAccount-navigation-link.woocommerce-MyAccount-navigation-link--customer-logout > a")));
         }
     }
 }
