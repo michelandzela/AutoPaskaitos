@@ -45,8 +45,5 @@ namespace AutoPaskaitos.ManoBaigiamasis.Tests
             mainPage.PressPrisijungti();
             mainPage.CheckWrongPassword();
         }
-       
-        
-
     }
 }

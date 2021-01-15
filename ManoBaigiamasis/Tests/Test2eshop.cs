@@ -15,29 +15,37 @@ namespace AutoPaskaitos.ManoBaigiamasis.Tests
         public void BeforeEveryTestTwo()
         {
             eShopPage = new EShopPage(driver);
+            eShopPage.PressEshopButton();
         }
 
         [Test]
         public void EShopPress()
         {
-            eShopPage.PressEshopButton();
             eShopPage.CheckEshopOpen();
         }
 
         [Test]
         public void PressApsauginesPrekesLeft()
         {
-            eShopPage.PressEshopButton();
             eShopPage.PressApsauginesPrekesLeftSide();
+
+            Assert.AreEqual("https://www.biomedikoscentras.lt/kategorija/medicinines-prekes/", driver.Url);
         }
 
         [Test]
         public void PressApsauginesPrekesCenter()
         {
-            eShopPage.PressEshopButton();
             eShopPage.PressApsauginesPrekesCenter();
-        }
-       // Kaip sutikrinti, kad paspaudus Left arba Center, atsidaro tas pats langas
 
+            Assert.AreEqual("https://www.biomedikoscentras.lt/kategorija/medicinines-prekes/", driver.Url);
+        }
+
+        [Test]
+        public void ReturnToHomePage()
+        {
+            eShopPage.HomeButton();
+
+            Assert.AreEqual("https://www.biomedikoscentras.lt/", driver.Url);
+        }
     }
 }

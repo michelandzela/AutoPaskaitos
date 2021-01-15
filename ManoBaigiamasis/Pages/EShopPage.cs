@@ -14,6 +14,7 @@ namespace AutoPaskaitos.ManoBaigiamasis.Pages
         private IWebElement eShopWritten => driver.FindElement(By.ClassName("shop-page-title"));
         private IWebElement apsauginesPrekesLeft => driver.FindElement(By.LinkText("Apsauginės prekės"));
         private IWebElement apsauginesPrekesCenter => driver.FindElement(By.ClassName("col-inner"));
+        private IWebElement homePageButton => driver.FindElement(By.Id("logo"));
 
         public void PressEshopButton()
         {
@@ -21,7 +22,7 @@ namespace AutoPaskaitos.ManoBaigiamasis.Pages
         }
         public void CheckEshopOpen()
         {
-            Assert.IsTrue(eShopWritten.Displayed); // paklausti, ar teisingai
+            Assert.IsTrue(eShopWritten.Displayed);
         }
         public void PressApsauginesPrekesLeftSide()
         {
@@ -31,10 +32,9 @@ namespace AutoPaskaitos.ManoBaigiamasis.Pages
         {
             apsauginesPrekesCenter.Click();
         }
-
-
+        public void HomeButton()
+        {
+            homePageButton.Click();
+        }
     }
-
-   
-   
 }
