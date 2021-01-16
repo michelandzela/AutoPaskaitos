@@ -16,11 +16,12 @@ namespace AutoPaskaitos.ManoBaigiamasis.Tests
         [Test]
         public void LogIn()
         {
-            mainPage.PressLogInButton();
-            mainPage.WriteCorrectEmail();
-            mainPage.WriteCorrectPassword();
-            mainPage.PressPrisijungti();
-            mainPage.CheckLogOutButton();
+            mainPage
+                .PressLogInButton()
+                .WriteCorrectEmail()
+                .WriteCorrectPassword()
+                .PressPrisijungti()
+                .CheckLogOutButton();
         }
 
         [Test]

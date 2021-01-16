@@ -14,25 +14,29 @@ namespace AutoPaskaitos.ManoBaigiamasis.Pages
         private IWebElement faultEmail => driver.FindElement(By.CssSelector(".woocommerce-error > li"));
         private IWebElement wrongPassword => driver.FindElement(By.CssSelector(".woocommerce-error > li"));
         
-        public void PressLogInButton()
+        public MainPage PressLogInButton()
         {
             logInButton.Click();
+            return this; // panaudojau ir return this
         }
-        public void WriteCorrectEmail()
+        public MainPage WriteCorrectEmail()
         {
             string email = "j.michalcenko@gmail.com";
             emailBox.SendKeys(email);
+            return this;
         }
-        public void WriteCorrectPassword()
+        public MainPage WriteCorrectPassword()
         {
             string mypassword = "AutoTestavimas2020";
             password.SendKeys(mypassword);
+            return this;
         }
-        public void PressPrisijungti()
+        public MainPage PressPrisijungti()
         {
             logIn.Click();
+            return this;
         }
-        public void WriteBadEmail()
+        public void WriteBadEmail() // naudojau per voida, kad nenaudoti - return this
         {
             string bademail = "something";
             emailBox.SendKeys(bademail);
