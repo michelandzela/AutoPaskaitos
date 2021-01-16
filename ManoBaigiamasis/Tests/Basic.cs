@@ -18,7 +18,7 @@ namespace AutoPaskaitos.ManoBaigiamasis.Tests
             driver.Manage().Window.Maximize();
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
         }
-
+       
         [TearDown]
         public void AfterTest()
         {
