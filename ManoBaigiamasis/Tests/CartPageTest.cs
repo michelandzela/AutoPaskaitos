@@ -1,9 +1,5 @@
 ﻿using AutoPaskaitos.ManoBaigiamasis.Pages;
 using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading;
 
 namespace AutoPaskaitos.ManoBaigiamasis.Tests
 {
@@ -17,19 +13,26 @@ namespace AutoPaskaitos.ManoBaigiamasis.Tests
             cartPage = new CartPage(driver);
             cartPage.PressEshopButton2();
             cartPage.PressApsauginesPrekesLeftSide2();
+            cartPage.PressApsauginesKaukes();
         }
 
         [Test]
         public void ShoppingSelection()
         {
-            cartPage.PressApsauginesKaukes();
             cartPage.CheckApsauginesKaukesDesplayed();
         }
         [Test]
         public void ShoppingCart()
         {
-            cartPage.PressApsauginesKaukes();
             cartPage.PressIkrepseli();
+            cartPage.CheckCartContain();
+        }
+        [Test]
+        public void Checkout()
+        {
+            cartPage.PressIkrepseli();
+            cartPage.PressCheckout();
+            cartPage.PresentAtsiskaitymas();
         }
     }
 }

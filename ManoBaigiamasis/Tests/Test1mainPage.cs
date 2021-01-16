@@ -1,8 +1,5 @@
 ﻿using AutoPaskaitos.ManoBaigiamasis.Pages;
 using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace AutoPaskaitos.ManoBaigiamasis.Tests
 {
